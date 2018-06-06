@@ -10,10 +10,6 @@ The talk follows a basic flow through the history of parallel and asynchronous p
 * [Why `await`'s exception handling is different than the raw `Task` handling][2]
 * [asyncFixer][5] extension
 
-A more detailed overview of working with the TPL is available on [Dave's blog][1].
-
-A discussion of why `await`'s exception process is different than how raw `Task`s work is available on the [Visual Studio team blog][4].
-
 [1]: https://davefancher.com/2011/03/10/parallel-programming-in-net-4/
 [2]: https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl
 [3]: https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm
