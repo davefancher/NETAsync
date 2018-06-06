@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using Async.Examples;
 
 using static Async.Logger;
@@ -8,6 +9,7 @@ using static Async.Logger;
 namespace Async
 {
     using DemoRunner = Action<string, string, double[]>;
+    using AsyncDemoRunner = Func<string, string, double[], Task>;
 
     class Program
     {
@@ -24,7 +26,7 @@ namespace Async
             Directory.CreateDirectory(OutputPath);
 
             DemoRunner run =
-                //SynchronousExample
+                SynchronousExample
                 //BadNewThreadExample
                 //NewThreadExample
                 //ThreadPoolExample
@@ -32,8 +34,17 @@ namespace Async
                 //APMWithDelegatesExample
                 //ParallelInvokeExample
                 //ParallelForEachExample
-                TaskFactoryExample
+                //NewTaskExample
+                //TaskFactoryExample
+                //TaskContinuationExample
+                //TaskExceptionsExample
                     .Run;
+
+            //AsyncDemoRunner run =
+                //AsyncAwaitExample
+                //AsyncAwaitRevisedExample
+                //AsyncAwaitCancellationAndExceptionExample
+                //    .Run;
 
             var sw = new Stopwatch();
             sw.Start();
@@ -41,7 +52,9 @@ namespace Async
             run(
                 SourceFileName,
                 OutputPath,
-                new[] { 1.0, 0.75, 0.5, 0.25, 0.1 });
+                new[] { 1.0, 0.75, 0.5, 0.25, 0.1 })
+                //.Wait()
+                ;
 
             sw.Stop();
 

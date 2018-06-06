@@ -8,7 +8,7 @@ using static Async.Logger;
 
 namespace Async.Examples
 {
-    public static class ParallelInvokeExample
+    public static class NewTaskExample
     {
         private static Func<double, Action> DoResize(ImageProcessor processor, string outputFolderPath) =>
             ratio =>
@@ -39,8 +39,17 @@ namespace Async.Examples
             {
                 ratios
                     .Select(DoResize(processor, outputFolderPath))
+                    .Select(
+                        fn =>
+                        {
+                            // Works but not recommended for most cases
+                            var t = new Task(fn);
+                            t.Start();
+
+                            return t;
+                        })
                     .ToArray()
-                    .Apply(Parallel.Invoke); // Void function, No callback, Data parallelism
+                    .Apply(Task.WaitAll); // Unlike the Parallel loops, TaskFactory doesn't implictly wait
             }
         }
     }

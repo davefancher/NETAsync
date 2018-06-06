@@ -38,7 +38,7 @@ namespace Async.Examples
             {
                 Parallel.ForEach(
                     ratios,
-                    DoResize(processor, outputFolderPath)); // Void function, No callback
+                    DoResize(processor, outputFolderPath)); // Void function, No callback, Data parallelism
             }
         }
     }

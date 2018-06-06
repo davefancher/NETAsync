@@ -39,7 +39,7 @@ namespace Async.Examples
             {
                 ratios
                     .Select(DoResize(processor, outputFolderPath))
-                    .Select(Task.Factory.StartNew)
+                    .Select(Task.Factory.StartNew) // Task parallelism
                     .ToArray()
                     .Apply(Task.WaitAll); // Unlike the Parallel loops, TaskFactory doesn't implictly wait
             }

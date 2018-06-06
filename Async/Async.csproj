@@ -46,7 +46,13 @@
     <Compile Include="Examples\05_ThreadPoolWithCallback.cs" />
     <Compile Include="Examples\04_ThreadPool.cs" />
     <Compile Include="Examples\06_APMWithDelegates.cs" />
-    <Compile Include="Examples\09_TaskFactory.cs" />
+    <Compile Include="Examples\09_NewTask.cs" />
+    <Compile Include="Examples\12_TaskExceptions.cs" />
+    <Compile Include="Examples\15_AsyncAwaitCancellationAndExceptions.cs" />
+    <Compile Include="Examples\14_AsyncAwaitRevised.cs" />
+    <Compile Include="Examples\13_AsyncAwait.cs" />
+    <Compile Include="Examples\11_TaskContinuations.cs" />
+    <Compile Include="Examples\10_TaskFactory.cs" />
     <Compile Include="Examples\08_ParallelForEach.cs" />
     <Compile Include="Examples\07_ParallelInvoke.cs" />
     <Compile Include="Extensions.cs" />
