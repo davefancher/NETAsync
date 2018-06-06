@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using Async.Examples;
 
 using static Async.Logger;
@@ -9,7 +9,7 @@ using static Async.Logger;
 namespace Async
 {
     using DemoRunner = Action<string, string, double[]>;
-    using AsyncDemoRunner = Func<string, string, double[], Task>;
+    //using AsyncDemoRunner = Func<string, string, double[], Task>;
 
     class Program
     {
