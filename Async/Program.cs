@@ -19,10 +19,11 @@ namespace Async
                 "AsyncDemo",
                 DateTime.Now.ToString("yyyyMMdd_hhmmss"));
 
-        const string SourceFileName = @"Y:\OneDrive\SkyDrive camera roll\IMG_20180526_113814.jpg";
-
         static void Main(string[] args)
         {
+            var currentPath = System.Reflection.Assembly.GetExecutingAssembly().Location.Pipe(Path.GetDirectoryName);
+            var SourceFileName = new[] { currentPath, "Assets", "Vardagen.jpg" }.Pipe(Path.Combine);
+
             Directory.CreateDirectory(OutputPath);
 
             DemoRunner run =
