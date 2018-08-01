@@ -37,10 +37,10 @@ namespace Async
             //       without some control mechanism
             // TODO: Uncomment for asynchronous examples
 
-            lock (SyncRoot)
-            {
+            //lock (SyncRoot)
+            //{
                 return new Bitmap(_sourceImage, Scale(_sourceImage, ratio));
-            }
+            //}
         }
 
         #region IDisposable Members
