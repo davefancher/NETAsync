@@ -33,13 +33,14 @@ namespace Async
 
         public Image ResizeSafe(double ratio)
         {
-            Image clonedSource;
-            lock(SyncRoot)
-            {
-                clonedSource = (Image)_sourceImage.Clone();
-            }
+            // NOTE: Image is not thread-safe so we can't asynchronously handle the resize
+            //       without some control mechanism
+            // TODO: Uncomment for asynchronous examples
 
-            return new Bitmap(clonedSource, Scale(clonedSource, ratio));
+            lock (SyncRoot)
+            {
+                return new Bitmap(_sourceImage, Scale(_sourceImage, ratio));
+            }
         }
 
         #region IDisposable Members
